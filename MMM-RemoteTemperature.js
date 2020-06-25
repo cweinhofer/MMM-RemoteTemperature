@@ -68,16 +68,32 @@ Module.register('MMM-RemoteTemperature', {
 
       wrapper.appendChild(firstLineEl);
 
+      if (this.viewModel.other1) {
+        const other1El = document.createElement('span');
+        other1El.classList = 'other1';
+        other1El.innerHTML = `${this.viewModel.other1}`;
+        secondLineEl.appendChild(other1El);
+      }
+
+      if (this.viewModel.other2) {
+        const other2El = document.createElement('span');
+        other2El.classList = 'other2';
+        other2El.innerHTML = `${this.viewModel.other2}`;
+        secondLineEl.appendChild(other2El);
+      }
+
+      wrapper.appendChild(secondLineEl);
+
       if (this.config.showMore) {
-        const secondLineEl = document.createElement('div');
-        secondLineEl.classList = 'more dimmed small';
-        secondLineEl.innerHTML = `<span class="fa fa-refresh"></span> ${this._formatTimestamp(this.viewModel.timestamp)}`;
+        const thirdLineEl = document.createElement('div');
+        thirdLineEl.classList = 'more dimmed small';
+        thirdLineEl.innerHTML = `<span class="fa fa-refresh"></span> ${this._formatTimestamp(this.viewModel.timestamp)}`;
 
         if (this.viewModel.battery) {
-          secondLineEl.innerHTML += `<span class="fa fa-battery-half"></span> ${this.viewModel.battery}%`;
+          thirdLineEl.innerHTML += `<span class="fa fa-battery-half"></span> ${this.viewModel.battery}%`;
         }
 
-        wrapper.appendChild(secondLineEl);
+        wrapper.appendChild(thirdLineEl);
       }
     } else {
       const loadingEl = document.createElement('span');
@@ -95,6 +111,8 @@ Module.register('MMM-RemoteTemperature', {
         this.viewModel = {
           temp: payload.temp,
           humidity: payload.humidity,
+          other1: payload.other1,
+          other2: payload.other2,
           battery: payload.battery,
           timestamp: Date.now()
         };
