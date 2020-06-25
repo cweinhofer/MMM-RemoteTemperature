@@ -23,6 +23,8 @@ module.exports = NodeHelper.create({
     const payload = {
       temp: params.temp,
       humidity: params.humidity,
+      other1: params.other1,
+      other2: params.other2,
       battery: params.battery,
       sensorId: params.sensorId
     };
