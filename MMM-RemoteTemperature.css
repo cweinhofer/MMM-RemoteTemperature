@@ -11,6 +11,15 @@
   margin-left: 15px;
 }
 
+.MMM-RemoteTemperature .other1 {
+  margin: 0;
+}
+
+.MMM-RemoteTemperature .other2 {
+  display: inline-block;
+  margin-left: 15px;
+}
+
 .MMM-RemoteTemperature .more {
   margin: 0;
 }
